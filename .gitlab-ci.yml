@@ -1,0 +1,14 @@
+image: node:14
+
+build_stage:
+  stage: build
+  environment: Stage
+  only:
+    - master-nestjs
+  tags:
+    - backend
+  script:
+    - rm ./package-lock.json
+    - npm install
+    - npm run build
+    - node dist/main.js
